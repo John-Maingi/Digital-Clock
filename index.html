@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock</title>
+	<link rel="stylesheet" type="text/css" href="clock.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="date" id="date"></div>
+	<div class="time">
+		
+			<div class="box" id="hour"></div>
+			<div class="box" id="min"></div>
+			<div class="box" id="sec"></div>
+			<div class="box" id="apm"></div>
+			<br>
+		
+		</div>
+		<p>Developed by: John Maingi &copy;2023</p>
+</div>
+
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		setInterval(time, 1000);
+		let red=Math.ceil(Math.random()*255);
+		let green=Math.ceil(Math.random()*255);
+		let blue=Math.ceil(Math.random()*255);
+		document.body.style.backgroundColor=`rgb(${red} ${green}, ${blue}, ${.3})`;
+		
+	}
+	function time(){
+		let date=new Date;
+		let hours=date.getHours();
+		let minutes=date.getMinutes();
+		let secs=date.getSeconds();
+		
+		if(secs<10){
+			document.getElementById("sec").textContent=`${secs}`;
+		}
+		else{
+			document.getElementById("sec").textContent=`${secs}`;
+		}
+		document.getElementById("date").textContent=`${date.toDateString()}`;
+		document.getElementById("hour").textContent=`${Math.abs(hours-12)}`;
+		document.getElementById("min").textContent=`${minutes}`;
+		if (hours >=12) {
+			document.getElementById("apm").textContent="pm";
+
+		}
+		else{
+			document.getElementById("apm").textContent="am";
+
+		}
+	
+		}
+	
+</script>
+
